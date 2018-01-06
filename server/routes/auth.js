@@ -2,7 +2,7 @@ import express from 'express';
 import passport from 'passport';
 import jwt from 'jsonwebtoken';
 
-import User from '../models/User';
+import User from '../models/user';
 import config from '../config';
 
 const router = express.Router();

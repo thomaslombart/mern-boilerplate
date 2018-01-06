@@ -1,0 +1,18 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
+
+.main {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+footer a,
+footer a:hover {
+  text-decoration: none;
+  color: white;
+}

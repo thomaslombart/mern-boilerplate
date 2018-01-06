@@ -7,21 +7,22 @@ import passport from 'passport';
 import helmet from 'helmet';
 
 /* CONFIG IMPORT */
-import config from './config';
+import config from './server/config';
 mongoose.Promise = global.Promise;
 mongoose.connect(config.database);
 
 /* ROUTES IMPORTS */
-import index from './routes/index';
-import auth from './routes/auth';
+import index from './server/routes/index';
+import auth from './server/routes/auth';
 
 /* PASSPORT IMPORT */
-import jwtLogin from './config/passport';
+import jwtLogin from './server/config/passport';
 
 const app = express();
 
 
 app.use(helmet());
+app.use(express.static(path.join(__dirname, 'client/build')));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
     extended: true
@@ -37,8 +38,13 @@ app.use((req, res, next) => {
 app.use(passport.initialize());
 passport.use(jwtLogin);
 
-app.use('/', index);
-app.use('/auth', auth);
+app.use('/api', index);
+app.use('/api/auth', auth);
+
+/* redirect all unmatched routes to homepage */
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname + '/client/build/index.html'));
+});
 
 const server = app.listen(config.port);
 

@@ -13,6 +13,7 @@
     "bcrypt-nodejs": "^0.0.3",
     "body-parser": "~1.18.2",
     "express": "~4.15.5",
+    "helmet": "^3.9.0",
     "jsonwebtoken": "^8.1.0",
     "mongoose": "^5.0.0-rc2",
     "passport": "^0.4.0",

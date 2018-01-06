@@ -1,5 +1,8 @@
 import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
+import {signup} from '../../actions/auth';
+import {bindActionCreators} from 'redux';
+import {connect} from 'react-redux';
 
 class Signup extends Component {
   constructor(props) {
@@ -35,53 +38,62 @@ class Signup extends Component {
     this.setState({username: e.target.value});
   }
 
-  handleSubmitClick() {}
+  handleSubmitClick() {
+    this.props.signup(this.state.username, this.state.password, this.state.passwordVerification);
+  }
 
   render() {
     return (
       <div className="main">
-                <div className="container">
-                    <div className="row">
-                        <div className="col-md-6 offset-md-3">
-                        <h2 className="text-center my-3">Inscription</h2>
-                            <form>
-                                <div className="form-group">
-                                    <label for="pseudo">Pseudo</label>
-                                    <input
-                                        type="text"
-                                        name="username"
-                                        className="form-control"
-                                        onChange={this.handleUsernameChange}/>
-
-                                </div>
-                                <div className="form-group">
-                                    <label for="password">Mot de passe</label>
-                                    <input
-                                        type="password"
-                                        name="password"
-                                        className="form-control"
-                                        onChange={this.handlePasswordChange}/>
-                                </div>
-                                <div className="form-group">
-                                    <label for="password_verification">Vérification du mot de passe</label>
-                                    <input
-                                        type="password"
-                                        name="password_verification"
-                                        className="form-control"
-                                        onChange={this.handlePasswordVerificationChange}/>
-                                </div>
-                                <button className="btn btn-primary btn-block" onClick={this.handleSubmitClick}>Envoyer</button>
-                            </form>
-                            <hr/>
-                            <p className="text-center">
-                                <Link to="/signin">Vous avez déjà un compte ?</Link>
-                            </p>
-                        </div>
-                    </div>
+        <div className="container">
+          <div className="row">
+            <div className="col-md-6 offset-md-3">
+              <h2 className="text-center my-3">Inscription</h2>
+              <form>
+                <div className="form-group">
+                  <label>Pseudo</label>
+                  <input
+                    type="text"
+                    name="username"
+                    className="form-control"
+                    onChange={this.handleUsernameChange}/>
                 </div>
+                <div className="form-group">
+                  <label>Mot de passe</label>
+                  <input
+                    type="password"
+                    name="password"
+                    className="form-control"
+                    onChange={this.handlePasswordChange}/>
+                </div>
+                <div className="form-group">
+                  <label>Vérification du mot de passe</label>
+                  <input
+                    type="password"
+                    name="passwordVerification"
+                    className="form-control"
+                    onChange={this.handlePasswordVerificationChange}/>
+                </div>
+                <button type="button" className="btn btn-primary btn-block" onClick={this.handleSubmitClick}>Envoyer</button>
+              </form>
+              <hr/>
+              <p className="text-center">
+                <Link to="/signin">Vous avez déjà un compte ?</Link>
+              </p>
             </div>
+          </div>
+        </div>
+      </div>
     );
   }
 }
+
+const mapStateToProps = state => ({state});
+
+const mapDispatchToProps = dispatch => bindActionCreators({
+  signup
+}, dispatch);
+
+Signup = connect(mapStateToProps, mapDispatchToProps)(Signup);
 
 export default Signup;

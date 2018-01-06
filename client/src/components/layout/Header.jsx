@@ -1,20 +1,41 @@
 import React, {Component} from 'react';
-import axios from 'axios';
-import {Link} from 'react-router-dom';
+import {Link, withRouter} from 'react-router-dom';
+import {bindActionCreators} from 'redux';
+import {signout} from '../../actions/auth';
+import {connect} from 'react-redux';
 
 class Header extends Component {
-    componentDidMount() {
-        axios
-            .get("/api")
-            .then(response => {
-                console.log(response);
-            })
-            .catch(error => {
-                console.log(error);
-            });
-    }
-
     render() {
+        const userLinks = (
+            <ul className="navbar-nav ml-auto">
+                <li className="nav-item">
+                    <Link className="nav-link" to="/profile">
+                        <i className="fas fa-user"></i> Profil
+                    </Link>
+                </li>
+                <li className="nav-item">
+                    <a href="#" className="nav-link" to="/signup" onClick={() => this.props.signout()}>
+                        <i className="fas fa-sign-in-alt"></i> Déconnexion
+                    </a>
+                </li>
+            </ul>
+        );
+
+        const guestLinks = (
+            <ul className="navbar-nav ml-auto">
+                <li className="nav-item">
+                    <Link className="nav-link" to="/signin">
+                        <i className="fas fa-sign-in-alt"></i> Connexion
+                    </Link>
+                </li>
+                <li className="nav-item">
+                    <Link className="nav-link" to="/signup">
+                        <i className="fas fa-user-plus"></i> Inscription
+                    </Link>
+                </li>
+            </ul>
+        );
+
         return (
             <nav className="navbar navbar-expand-lg navbar-light bg-light">
                 <h2 className="navbar-brand">
@@ -31,24 +52,21 @@ class Header extends Component {
                     <span className="navbar-toggler-icon"></span>
                 </button>
                 <div className="collapse navbar-collapse" id="navbarNav">
-                    <ul className="navbar-nav ml-auto">
-                        <li className="nav-item">
-                            <Link className="nav-link" to="/signin">
-                                <i className="fas fa-sign-in-alt"></i>
-                                Connexion
-                            </Link>
-                        </li>
-                        <li className="nav-item">
-                            <Link className="nav-link" to="/signup">
-                                <i className="fas fa-user-plus"></i>
-                                Inscription
-                            </Link>
-                        </li>
-                    </ul>
+                    {this.props.state.isAuthenticated
+                        ? userLinks
+                        : guestLinks}
                 </div>
             </nav>
         )
     }
 }
+
+const mapStateToProps = state => ({state});
+
+const mapDispatchToProps = dispatch => bindActionCreators({
+    signout
+}, dispatch);
+
+Header = withRouter(connect(mapStateToProps, mapDispatchToProps)(Header));
 
 export default Header;

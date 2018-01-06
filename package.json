@@ -6,7 +6,7 @@
     "start": "babel-node app.js",
     "dev": "nodemon --exec babel-node app.js",
     "heroku-postbuild": "cd client && yarn --production=false && yarn run build",
-    "test": "mocha test/*.js --require babel-register"
+    "test": "mocha ./server/test/*.js --require babel-register"
   },
   "dependencies": {
     "babel-cli": "^6.26.0",

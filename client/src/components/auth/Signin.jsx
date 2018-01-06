@@ -1,5 +1,8 @@
 import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
+import {signin} from '../../actions/auth';
+import {bindActionCreators} from 'redux';
+import {connect} from 'react-redux';
 
 class Signin extends Component {
     constructor(props) {
@@ -27,7 +30,9 @@ class Signin extends Component {
         this.setState({username: e.target.value});
     }
 
-    handleSubmitClick() {}
+    handleSubmitClick() {
+        this.props.signin(this.state.username, this.state.password);
+    }
 
     render() {
         return (
@@ -38,7 +43,7 @@ class Signin extends Component {
                             <h2 className="text-center my-3">Connexion</h2>
                             <form>
                                 <div className="form-group">
-                                    <label for="pseudo">Pseudo</label>
+                                    <label>Pseudo</label>
                                     <input
                                         type="text"
                                         name="username"
@@ -47,14 +52,14 @@ class Signin extends Component {
 
                                 </div>
                                 <div className="form-group">
-                                    <label for="password">Mot de passe</label>
+                                    <label>Mot de passe</label>
                                     <input
                                         type="password"
                                         name="password"
                                         className="form-control"
                                         onChange={this.handlePasswordChange}/>
                                 </div>
-                                <button className="btn btn-primary btn-block" onClick={this.handleSubmitClick}>Envoyer</button>
+                                <button type="button" className="btn btn-primary btn-block" onClick={this.handleSubmitClick}>Envoyer</button>
                             </form>
                             <hr/>
                             <p className="text-center">
@@ -67,5 +72,13 @@ class Signin extends Component {
         );
     }
 }
+
+const mapStateToProps = state => ({state});
+
+const mapDispatchToProps = dispatch => bindActionCreators({
+  signin
+}, dispatch);
+
+Signin = connect(mapStateToProps, mapDispatchToProps)(Signin);
 
 export default Signin;

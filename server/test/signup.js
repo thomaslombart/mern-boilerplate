@@ -2,8 +2,8 @@ import chai from 'chai';
 import chaiHttp from 'chai-http';
 const should = chai.should();
 
-import app from '../app';
-import User from '../models/User';
+import app from '../../app';
+import User from '../models/user';
 
 chai.use(chaiHttp);
 
@@ -12,10 +12,10 @@ describe('/auth/signup', () => {
         let user = {
             username: 'tester',
             password: 'test',
-            password_verification: 'test'
+            passwordVerification: 'test'
         };
         chai.request(app)
-            .post('/auth/signup')
+            .post('/api/auth/signup')
             .send(user)
             .end((err, res) => {
                 res.status.should.equal(200);
@@ -28,10 +28,10 @@ describe('/auth/signup', () => {
         let user = {
             username: 'tester',
             password: 'test',
-            password_verification: 'tset'
+            passwordVerification: 'tset'
         };
         chai.request(app)
-            .post('/auth/signup')
+            .post('/api/auth/signup')
             .send(user)
             .end((err, res) => {
                 res.status.should.equal(401);

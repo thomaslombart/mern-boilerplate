@@ -5,7 +5,7 @@
   "scripts": {
     "start": "babel-node app.js",
     "dev": "nodemon --exec babel-node app.js",
-    "heroku-postbuild": "cd client && yarn --production=false && yarn run build",
+    "heroku-postbuild": "cd client && npm install --production=false && npm run build",
     "test": "mocha ./server/test/*.js --require babel-register"
   },
   "dependencies": {

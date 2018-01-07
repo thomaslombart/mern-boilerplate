@@ -9,7 +9,7 @@ class FlashMessagesList extends Component {
             <div className="flash-list">
                 {this
                     .props
-                    .flash
+                    .messages
                     .map(message => <Flash
                         content={message.content}
                         alertClassName={message.alertClassName}
@@ -20,7 +20,7 @@ class FlashMessagesList extends Component {
     }
 }
 
-const mapStateToProps = state => ({flash: state.flash});
+const mapStateToProps = state => ({messages: state.messages});
 
 FlashMessagesList = connect(mapStateToProps, null)(FlashMessagesList);
 

@@ -14,7 +14,7 @@ import './index.css';
 import registerServiceWorker from './registerServiceWorker';
 
 import auth from './reducers/auth';
-import flash from './reducers/flash';
+import messages from './reducers/flash';
 
 import Signin from './components/auth/Signin.jsx';
 import Signup from './components/auth/Signup.jsx';
@@ -26,7 +26,7 @@ import FlashMessagesList from './components/flash/FlashMessagesList';
 
 import {AUTH_USER} from './actions/auth';
 
-const store = createStore(combineReducers({auth, flash}), applyMiddleware(logger, thunk));
+const store = createStore(combineReducers({auth, messages}), applyMiddleware(logger, thunk));
 
 const token = localStorage.getItem('jwt');
 if (token) {
@@ -34,6 +34,19 @@ if (token) {
     store.dispatch({
         type: AUTH_USER,
         user: jwt.decode(token)
+    });
+}
+
+/* FLASH MESSAGE */
+
+let nextFlashId = 0;
+
+export const flash = (content, alertClassName = 'success') => {
+    store.dispatch({
+        type: 'ADD_FLASH_MESSAGE',
+        id: nextFlashId++,
+        content,
+        alertClassName
     });
 }
 

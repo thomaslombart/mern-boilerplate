@@ -24,6 +24,8 @@ import Home from './components/Home.jsx';
 import NotFound from './components/NotFound.jsx';
 import FlashMessagesList from './components/flash/FlashMessagesList';
 
+import withRedirect from './hoc/withRedirect';
+
 import {AUTH_USER} from './actions/auth';
 
 const store = createStore(combineReducers({auth, messages}), applyMiddleware(logger, thunk));
@@ -57,8 +59,8 @@ ReactDOM.render(
             <Header/>
             <Switch>
                 <Route exact path="/" component={Home}/>
-                <Route path="/signin" component={Signin}/>
-                <Route path="/signup" component={Signup}/>
+                <Route path="/signin" component={withRedirect(Signin)}/>
+                <Route path="/signup" component={withRedirect(Signup)}/>
                 <Route component={NotFound}/>
             </Switch>
             <FlashMessagesList/>

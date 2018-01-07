@@ -52,7 +52,7 @@ class Header extends Component {
                     <span className="navbar-toggler-icon"></span>
                 </button>
                 <div className="collapse navbar-collapse" id="navbarNav">
-                    {this.props.state.isAuthenticated
+                    {this.props.auth.isAuthenticated
                         ? userLinks
                         : guestLinks}
                 </div>
@@ -61,7 +61,7 @@ class Header extends Component {
     }
 }
 
-const mapStateToProps = state => ({state});
+const mapStateToProps = state => ({auth: state.auth});
 
 const mapDispatchToProps = dispatch => bindActionCreators({
     signout

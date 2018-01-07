@@ -5,7 +5,7 @@ import {Provider} from 'react-redux';
 
 import logger from 'redux-logger';
 import thunk from 'redux-thunk';
-import {applyMiddleware, createStore} from 'redux';
+import {applyMiddleware, combineReducers, createStore} from 'redux';
 
 import axios from 'axios';
 import jwt from 'jsonwebtoken';
@@ -14,16 +14,19 @@ import './index.css';
 import registerServiceWorker from './registerServiceWorker';
 
 import auth from './reducers/auth';
+import flash from './reducers/flash';
+
 import Signin from './components/auth/Signin.jsx';
 import Signup from './components/auth/Signup.jsx';
 import Header from './components/layout/Header.jsx';
 import Footer from './components/layout/Footer.jsx';
 import Home from './components/Home.jsx';
 import NotFound from './components/NotFound.jsx';
+import FlashMessagesList from './components/flash/FlashMessagesList';
 
 import {AUTH_USER} from './actions/auth';
 
-const store = createStore(auth, applyMiddleware(logger, thunk));
+const store = createStore(combineReducers({auth, flash}), applyMiddleware(logger, thunk));
 
 const token = localStorage.getItem('jwt');
 if (token) {
@@ -45,6 +48,7 @@ ReactDOM.render(
                 <Route path="/signup" component={Signup}/>
                 <Route component={NotFound}/>
             </Switch>
+            <FlashMessagesList/>
             <Footer/>
         </div>
     </Router>

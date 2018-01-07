@@ -10,6 +10,16 @@ body {
   align-items: center;
 }
 
+/* FLASH MESSAGES */
+
+.flash-list {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+}
+
+/* FOOTER */
+
 footer a,
 footer a:hover {
   text-decoration: none;

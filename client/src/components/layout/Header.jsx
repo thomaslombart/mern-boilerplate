@@ -14,7 +14,7 @@ class Header extends Component {
                     </Link>
                 </li>
                 <li className="nav-item">
-                    <a href="#" className="nav-link" to="/signup" onClick={() => this.props.signout()}>
+                    <a className="nav-link" to="/signup" onClick={() => this.props.signout()}>
                         <i className="fas fa-sign-in-alt"></i> Déconnexion
                     </a>
                 </li>

@@ -1,8 +1,9 @@
 import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
-import {signup} from '../../actions/auth';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
+
+import {signup} from '../../actions/auth';
 
 class Signup extends Component {
   constructor(props) {

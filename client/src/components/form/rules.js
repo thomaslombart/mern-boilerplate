@@ -1,0 +1,1 @@
+export const isFalsy = (value) => (value === undefined || value === null || value === '');

@@ -7,8 +7,7 @@ export const AUTH_USER = 'AUTH_USER';
 export const SIGNOUT = 'SIGNOUT';
 
 /* signup */
-export const signup = (username, password, passwordVerification) => dispatch => {
-    console.log(username)
+export const signup = ({username, password, passwordVerification}) => dispatch => {
     axios
         .post('/api/auth/signup', {username, password, passwordVerification})
         .then(response => {
@@ -21,7 +20,7 @@ export const signup = (username, password, passwordVerification) => dispatch => 
 }
 
 /* signin */
-export const signin = (username, password) => dispatch => {
+export const signin = ({username, password}) => dispatch => {
     axios
         .post('/api/auth/signin', {username, password})
         .then(response => {

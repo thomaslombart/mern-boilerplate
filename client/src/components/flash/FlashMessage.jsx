@@ -14,6 +14,7 @@ class FlashMessage extends Component {
     }
 
     render() {
+        const items = ['hello', 'world']
         return (
             <div className={`alert alert-${this.props.alertClassName}`}>
                 {this.props.content}

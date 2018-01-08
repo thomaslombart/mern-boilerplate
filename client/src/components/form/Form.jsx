@@ -6,9 +6,12 @@ class Form extends Component {
     constructor(props) {
         super(props);
 
+        /**
+         * [{name: 'username', type: 'text', ...}, {name: 'password', ...}] => {username: '', password: '', errors: {}}
+         */
         this.state = Object.assign(...this.props.fields.map(field => ({
             [field.name]: ''
-        })));
+        })), {errors: {}});
 
         this.handleChange = this
             .handleChange
@@ -29,6 +32,8 @@ class Form extends Component {
             .props
             .triggerSubmitFunction(this.state);
     }
+
+    isValid() {}
 
     render() {
         return (

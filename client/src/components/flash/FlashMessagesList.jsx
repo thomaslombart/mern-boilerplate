@@ -1,4 +1,5 @@
-import React, {Component} from 'react'
+import React, {Component} from 'react';
+import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 import {CSSTransitionGroup} from 'react-transition-group';
 
@@ -25,6 +26,10 @@ class FlashMessagesList extends Component {
         );
     }
 }
+
+FlashMessagesList.propTypes = {
+    messages: PropTypes.array
+};
 
 const mapStateToProps = state => ({messages: state.messages});
 

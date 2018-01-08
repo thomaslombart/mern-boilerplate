@@ -1,4 +1,5 @@
-import React, {Component} from 'react'
+import React, {Component} from 'react';
+import PropTypes from 'prop-types';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 
@@ -14,7 +15,6 @@ class FlashMessage extends Component {
     }
 
     render() {
-        const items = ['hello', 'world']
         return (
             <div className={`alert alert-${this.props.alertClassName}`}>
                 {this.props.content}
@@ -22,6 +22,13 @@ class FlashMessage extends Component {
         );
     }
 }
+
+FlashMessage.propTypes = {
+    content: PropTypes.string,
+    alertClassName: PropTypes.string,
+    id: PropTypes.number,
+    key: PropTypes.number
+};
 
 const mapDispatchToProps = dispatch => bindActionCreators({
     removeFlashMessage

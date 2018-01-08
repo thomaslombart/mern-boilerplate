@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import PropTypes from 'prop-types';
 import {Link} from 'react-router-dom';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
@@ -75,12 +76,14 @@ class Signin extends Component {
     }
 }
 
-const mapStateToProps = state => ({state});
+Signin.propTypes = {
+    signin: PropTypes.func
+};
 
 const mapDispatchToProps = dispatch => bindActionCreators({
   signin
 }, dispatch);
 
-Signin = connect(mapStateToProps, mapDispatchToProps)(Signin);
+Signin = connect(null, mapDispatchToProps)(Signin);
 
 export default Signin;

@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import PropTypes from 'prop-types';
 import {Link, withRouter} from 'react-router-dom';
 import {bindActionCreators} from 'redux';
 import {signout} from '../../actions/auth';
@@ -60,6 +61,11 @@ class Header extends Component {
         )
     }
 }
+
+Header.propTypes = {
+    auth: PropTypes.object,
+    signout: PropTypes.func
+};
 
 const mapStateToProps = state => ({auth: state.auth});
 

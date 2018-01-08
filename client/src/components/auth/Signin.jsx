@@ -4,8 +4,9 @@ import {Link} from 'react-router-dom';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 
-import {signin} from '../../actions/auth';
+import Form from '../form/Form';
 
+import {signin} from '../../actions/auth';
 
 class Signin extends Component {
     constructor(props) {
@@ -14,56 +15,45 @@ class Signin extends Component {
             username: '',
             password: ''
         };
-        this.handleUsernameChange = this
-            .handleUsernameChange
-            .bind(this);
-        this.handlePasswordChange = this
-            .handlePasswordChange
+        this.handleChange = this
+            .handleChange
             .bind(this);
         this.handleSubmitClick = this
             .handleSubmitClick
             .bind(this);
     }
 
-    handlePasswordChange(e) {
-        this.setState({password: e.target.value});
-    }
-
-    handleUsernameChange(e) {
-        this.setState({username: e.target.value});
+    handleChange(e) {
+        let name = e.target.name;
+        this.setState({[name]: e.target.value});
     }
 
     handleSubmitClick() {
-        this.props.signin(this.state.username, this.state.password);
+        this
+            .props
+            .signin(this.state.username, this.state.password);
     }
 
     render() {
+        const fields = [
+            {
+                text: 'Pseudo',
+                type: 'text',
+                name: 'username',
+                placeholder: 'John Doe'
+            }, {
+                text: 'Mot de passe',
+                type: 'password',
+                name: 'password'
+            }
+        ];
         return (
             <div className="main">
                 <div className="container">
                     <div className="row">
                         <div className="col-md-6 offset-md-3">
                             <h2 className="text-center my-3">Connexion</h2>
-                            <form>
-                                <div className="form-group">
-                                    <label>Pseudo</label>
-                                    <input
-                                        type="text"
-                                        name="username"
-                                        className="form-control"
-                                        onChange={this.handleUsernameChange}/>
-
-                                </div>
-                                <div className="form-group">
-                                    <label>Mot de passe</label>
-                                    <input
-                                        type="password"
-                                        name="password"
-                                        className="form-control"
-                                        onChange={this.handlePasswordChange}/>
-                                </div>
-                                <button type="button" className="btn btn-primary btn-block" onClick={this.handleSubmitClick}>Envoyer</button>
-                            </form>
+                            <Form fields={fields} triggerSubmitFunction={this.props.signin}/>
                             <hr/>
                             <p className="text-center">
                                 <Link to="/signup">Pas de compte ?</Link>
@@ -81,7 +71,7 @@ Signin.propTypes = {
 };
 
 const mapDispatchToProps = dispatch => bindActionCreators({
-  signin
+    signin
 }, dispatch);
 
 Signin = connect(null, mapDispatchToProps)(Signin);

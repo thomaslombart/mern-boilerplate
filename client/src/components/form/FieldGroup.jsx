@@ -1,15 +1,23 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 
-const FieldGroup = ({text, type, name, placeholder, handleChange}) => (
+const FieldGroup = ({
+    text,
+    type,
+    name,
+    placeholder,
+    error,
+    handleChange
+}) => (
     <div className="form-group">
         <label>{text}</label>
         <input
             type={type}
             name={name}
-            className="form-control"
+            className={`form-control ${error ? 'is-invalid' : ''}`}
             placeholder={placeholder}
             onChange={handleChange}/>
+        <small>{error}</small>
     </div>
 );
 

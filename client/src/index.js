@@ -15,6 +15,7 @@ import registerServiceWorker from './registerServiceWorker';
 
 import auth from './reducers/auth';
 import messages from './reducers/flash';
+import errors from './reducers/errors';
 
 import Signin from './components/auth/Signin.jsx';
 import Signup from './components/auth/Signup.jsx';
@@ -28,7 +29,9 @@ import withRedirect from './hoc/withRedirect';
 
 import {AUTH_USER} from './actions/auth';
 
-const store = createStore(combineReducers({auth, messages}), applyMiddleware(logger, thunk));
+const rootReducer = combineReducers({auth, messages, errors});
+
+const store = createStore(rootReducer, applyMiddleware(logger, thunk));
 
 const token = localStorage.getItem('jwt');
 if (token) {

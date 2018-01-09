@@ -4,7 +4,7 @@ const Footer = () => (
     <footer className="bg-dark">
         <div className="container py-4">
             <h6 className="text-center text-white my-3">
-                <i className="fas fa-copyright"></i> 2017 conçu par Thomas Lombart
+                <i className="fas fa-copyright"></i> 2018 made by thomlom
             </h6>
             <div className="text-center">
                 <a href="https://www.linkedin.com/in/thomas-lombart" rel="noopener noreferrer" target="_blank">

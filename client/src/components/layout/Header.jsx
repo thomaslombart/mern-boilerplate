@@ -10,11 +10,6 @@ class Header extends Component {
         const userLinks = (
             <ul className="navbar-nav ml-auto">
                 <li className="nav-item">
-                    <Link className="nav-link" to="/profile">
-                        <i className="fas fa-user"></i> Profile
-                    </Link>
-                </li>
-                <li className="nav-item">
                     <a className="nav-link" onClick={() => this.props.signout()}>
                         <i className="fas fa-sign-in-alt"></i> Signout
                     </a>
@@ -40,7 +35,7 @@ class Header extends Component {
         return (
             <nav className="navbar navbar-expand-lg navbar-light bg-light">
                 <h2 className="navbar-brand">
-                    ArcadiaA
+                    Full Stack app
                 </h2>
                 <button
                     className="navbar-toggler"

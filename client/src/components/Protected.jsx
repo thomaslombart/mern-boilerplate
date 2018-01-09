@@ -2,7 +2,7 @@ import React from 'react';
 
 const Protected = () => (
     <div>
-        <p>Protected</p>
+        <h2 className="display-3 my-4 text-center">Protected</h2>
     </div>
 );
 

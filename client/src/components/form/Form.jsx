@@ -73,7 +73,7 @@ class Form extends Component {
                 <button
                     type="button"
                     className="btn btn-primary btn-block"
-                    onClick={this.handleSubmitClick}>Envoyer</button>
+                    onClick={this.handleSubmitClick}>Submit</button>
             </form>
         )
     }

@@ -2,7 +2,7 @@ import chai from 'chai';
 import chaiHttp from 'chai-http';
 const should = chai.should();
 
-import app from '../../app';
+import app from '../../index';
 import User from '../models/user';
 
 chai.use(chaiHttp);
@@ -53,7 +53,6 @@ describe('/auth/signin', () => {
             .send(user)
             .end((err, res) => {
                 res.status.should.equal(403);
-                res.body.should.have.property('error');
                 done();
             });
     });
@@ -68,7 +67,6 @@ describe('/auth/signin', () => {
             .send(user)
             .end((err, res) => {
                 res.status.should.equal(401);
-                res.body.should.have.property('error');
                 done();
             });
     });

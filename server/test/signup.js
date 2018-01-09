@@ -2,7 +2,7 @@ import chai from 'chai';
 import chaiHttp from 'chai-http';
 const should = chai.should();
 
-import app from '../../app';
+import app from '../../index';
 import User from '../models/user';
 
 chai.use(chaiHttp);
@@ -34,8 +34,7 @@ describe('/auth/signup', () => {
             .post('/api/auth/signup')
             .send(user)
             .end((err, res) => {
-                res.status.should.equal(401);
-                res.body.should.have.property('error');
+                res.status.should.equal(422);
                 done();
             });
     });

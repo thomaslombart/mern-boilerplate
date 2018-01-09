@@ -1,7 +1,5 @@
 import {
-    AUTH_USER,
-    AUTH_FAILURE,
-    SIGNOUT
+    AUTH_FAILURE
 } from '../actions/auth';
 import {
     CLEAR_ERRORS

@@ -15,17 +15,10 @@ class Signin extends Component {
             username: '',
             password: ''
         };
-        this.handleChange = this
-            .handleChange
-            .bind(this);
+
         this.handleSubmitClick = this
             .handleSubmitClick
             .bind(this);
-    }
-
-    handleChange(e) {
-        let name = e.target.name;
-        this.setState({[name]: e.target.value});
     }
 
     handleSubmitClick() {

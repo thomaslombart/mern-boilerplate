@@ -19,14 +19,6 @@ class Signup extends Component {
     this.handleSubmitClick = this
       .handleSubmitClick
       .bind(this);
-    this.handleChange = this
-      .handleChange
-      .bind(this);
-  }
-
-  handleChange(e) {
-    let name = e.target.name;
-    this.setState({[name]: e.target.value});
   }
 
   handleSubmitClick() {

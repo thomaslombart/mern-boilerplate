@@ -24,7 +24,7 @@ export const signup = ({
         .then(response => {
             const token = response.data;
             localStorage.setItem('jwt', token);
-            axios.defaults.headers.common['Authorization'] = `JWT ${token}`;
+            axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
             dispatch({
                 type: AUTH_USER,
                 user: jwt.decode(token)
@@ -52,7 +52,7 @@ export const signin = ({
         .then(response => {
             const token = response.data;
             localStorage.setItem('jwt', token);
-            axios.defaults.headers.common['Authorization'] = `JWT ${token}`;
+            axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
             dispatch({
                 type: AUTH_USER,
                 user: jwt.decode(token)
@@ -69,6 +69,7 @@ export const signin = ({
 /* signout */
 export const signout = () => {
     localStorage.removeItem('jwt');
+    delete axios.defaults.headers.common['Authorization'];
     return {
         type: SIGNOUT
     };

@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
-import {Link} from 'react-router-dom';
+import {Link, Redirect} from 'react-router-dom';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 
@@ -35,6 +35,15 @@ class Signin extends Component {
     }
 
     render() {
+        const {from} = this.props.location.state || {
+            from: {
+                pathname: '/'
+            }
+        };
+        if (this.props.auth.isAuthenticated) {
+            return (<Redirect to={from.pathname}/>)
+        }
+
         const fields = [
             {
                 text: 'Username',

@@ -24,8 +24,10 @@ import Footer from './components/layout/Footer.jsx';
 import Home from './components/Home.jsx';
 import NotFound from './components/NotFound.jsx';
 import FlashMessagesList from './components/flash/FlashMessagesList';
+import Protected from './components/Protected';
 
 import withRedirect from './hoc/withRedirect';
+import withAuthenticate from './hoc/withAuthenticate';
 
 import {AUTH_USER} from './actions/auth';
 
@@ -64,6 +66,7 @@ ReactDOM.render(
                 <Route exact path="/" component={Home}/>
                 <Route path="/signin" component={withRedirect(Signin)}/>
                 <Route path="/signup" component={withRedirect(Signup)}/>
+                <Route path="/protected" component={withAuthenticate(Protected)}/>
                 <Route component={NotFound}/>
             </Switch>
             <FlashMessagesList/>

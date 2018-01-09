@@ -7,6 +7,12 @@ body {
   height: 100vh;
 }
 
+/* HEADER */
+
+.nav-link {
+  cursor: pointer;
+}
+
 
 /* FLASH MESSAGES */
 

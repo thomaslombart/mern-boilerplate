@@ -7,7 +7,7 @@ import {removeFlashMessage} from '../../actions/flash';
 
 class FlashMessage extends Component {
     componentDidMount() {
-        setInterval(() => {
+        setTimeout(() => {
             this
                 .props
                 .removeFlashMessage(this.props.id);

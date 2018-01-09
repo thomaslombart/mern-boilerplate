@@ -37,12 +37,12 @@ class Signin extends Component {
     render() {
         const fields = [
             {
-                text: 'Pseudo',
+                text: 'Username',
                 type: 'text',
                 name: 'username',
                 placeholder: 'John Doe'
             }, {
-                text: 'Mot de passe',
+                text: 'Password',
                 type: 'password',
                 name: 'password'
             }
@@ -52,11 +52,11 @@ class Signin extends Component {
                 <div className="container">
                     <div className="row">
                         <div className="col-md-6 offset-md-3">
-                            <h2 className="text-center my-3">Connexion</h2>
+                            <h2 className="text-center my-3">Signin</h2>
                             <Form fields={fields} triggerSubmitFunction={this.props.signin}/>
                             <hr/>
                             <p className="text-center">
-                                <Link to="/signup">Pas de compte ?</Link>
+                                <Link to="/signup">No account ?</Link>
                             </p>
                         </div>
                     </div>

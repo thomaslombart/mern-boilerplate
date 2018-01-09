@@ -38,16 +38,16 @@ class Signup extends Component {
   render() {
     const fields = [
       {
-        text: 'Pseudo',
+        text: 'Username',
         type: 'text',
         name: 'username',
         placeholder: 'John Doe'
       }, {
-        text: 'Mot de passe',
+        text: 'Password',
         type: 'password',
         name: 'password'
       }, {
-        text: 'Vérification du mot de passe',
+        text: 'Verification password',
         type: 'password',
         name: 'passwordVerification'
       }
@@ -57,11 +57,11 @@ class Signup extends Component {
         <div className="container">
           <div className="row">
             <div className="col-md-6 offset-md-3">
-              <h2 className="text-center my-3">Inscription</h2>
+              <h2 className="text-center my-3">Signup</h2>
               <Form fields={fields} triggerSubmitFunction={this.props.signup}/>
               <hr/>
               <p className="text-center">
-                <Link to="/signin">Vous avez déjà un compte ?</Link>
+                <Link to="/signin">Already have an account ?</Link>
               </p>
             </div>
           </div>

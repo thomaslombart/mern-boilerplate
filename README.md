@@ -8,6 +8,7 @@ This project aims to help beginners to get started on a full stack app with Reac
 
 * [yarn](https://yarnpkg.com/lang/en/) or [npm](https://www.npmjs.com/)
 * [node](https://nodejs.org/en/)
+* [mocha](https://mochajs.org/)
 
 ### Installing
 

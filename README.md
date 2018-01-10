@@ -39,7 +39,7 @@ Then modify the object in `./server/config.js` :
 
 **WARNING** : The link does include your username and password, your link must be an **environment** variable !
 
-**SECOND WARNING** : Your jwt secret key should be an environment variable too !
+**SECOND WARNING** : Your jwt secret key should be an environment variable too ! This is used for your authentication. For more explanations, go [here](https://github.com/themikenicholson/passport-jwt)
 
 
 ```sh

@@ -37,9 +37,9 @@ Then modify the object in `./server/config.js` :
 }
 ```
 
-**WARNING** : The link does include your username and password, your link must be an **environment** variable !
+**WARNING** : The database link does include your username and password, your link must be an **environment** variable !
 
-**SECOND WARNING** : Your jwt secret key should be an environment variable too ! This is used for your authentication. For more explanations, go [here](https://github.com/themikenicholson/passport-jwt)
+**SECOND WARNING** : Your jwt secret key should be an environment variable too ! This is used for your authentication. For more explanations, go [here](https://github.com/themikenicholson/passport-jwt).
 
 
 ```sh
@@ -55,15 +55,16 @@ For now, just the backend has been partially tested.
 yarn test
 ```
 
-### Technologies used
+### Technologies and frameworks used
 
-* [Create React App](https://github.com/facebookincubator/create-react-app).
+* [Create React App](https://github.com/facebookincubator/create-react-app)
 * [Redux](https://redux.js.org/) 
 * [React](https://reactjs.org/)
 * [React Router](https://reacttraining.com/react-router/)
 * [Bootstrap](https://getbootstrap.com/)
 * [Express](https://expressjs.com/)
 * [Mongoose](http://mongoosejs.com/)
+* [Font Awesome](https://fontawesome.com/)
 
 ## How to ...
 
@@ -89,6 +90,8 @@ Create your reducer in `./client/src/reducers` then in `./client/src/index.js` i
 ```
 const rootReducer = combineReducers({auth, messages, errors, /* ADD YOUR REDUCER HERE */});
 ```
+
+More how tos are coming...
 
 ## Authors
 

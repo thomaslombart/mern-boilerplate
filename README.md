@@ -18,6 +18,22 @@ cd client && yarn
 
 ### Running the app locally
 
+First, you need to connect your own database using [mLab](https://mlab.com/), if you don't know how to do it, follow this [tutorial](https://beta.freecodecamp.org/en/challenges/mongodb-and-mongoose/create-an-online-database-using-mlab)
+
+Then modify the object in `./server/config.js` :
+
+```js
+{
+    'port': process.env.PORT || 3000,
+    'database': process.env.MY_DATABASE_LINK,
+    'jwt': {
+        'secret': 'my_secret_key'
+    }
+}
+```
+
+**WARNING** : The link does include your username and password, your link must be an **environment** variable !
+
 ```sh
 yarn dev
 cd client && yarn start

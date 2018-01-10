@@ -44,6 +44,11 @@ Then modify the object in `./server/config.js` :
 
 ```sh
 yarn dev
+```
+
+Open a second terminal window and execute this command : 
+
+```sh
 cd client && yarn start
 ```
 

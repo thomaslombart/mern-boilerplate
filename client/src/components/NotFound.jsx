@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const NotFound = ({ location }) => (
-    <div>
+    <div className="main">
         <h3 className="title text-center">
             <code>Error 404 : {location.pathname} Not Found</code>
             <h4>Veuillez retourner à la <Link to="/">page d'accueil</Link></h4>

@@ -4,6 +4,8 @@ This project aims to help beginners to get started on a full stack app with Reac
 
 [Live App](https://react-full-stack-boilerplate.herokuapp.com/)
 
+![Screenshot of the live app](screenshot.png)
+
 ## Getting Started
 
 ### Prerequisites
@@ -36,6 +38,9 @@ Then modify the object in `./server/config.js` :
 ```
 
 **WARNING** : The link does include your username and password, your link must be an **environment** variable !
+
+**SECOND WARNING** : Your jwt secret key should be an environment variable too !
+
 
 ```sh
 yarn dev

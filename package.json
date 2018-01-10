@@ -5,7 +5,7 @@
   "scripts": {
     "start": "babel-node index.js",
     "dev": "nodemon --exec babel-node index.js",
-    "heroku-postbuild": "cd client && npm install --production=false && npm run build",
+    "heroku-postbuild": "cd client && yarn --production=false && yarn build",
     "test": "mocha ./server/test/*.js --require babel-register"
   },
   "dependencies": {

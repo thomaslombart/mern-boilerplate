@@ -2,6 +2,8 @@
 
 This project aims to help beginners to get started on a full stack app with React, Redux, Express and MongoDB
 
+[Live App](https://react-full-stack-boilerplate.herokuapp.com/)
+
 ## Getting Started
 
 ### Prerequisites

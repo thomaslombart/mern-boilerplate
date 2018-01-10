@@ -11,7 +11,7 @@ class Header extends Component {
             <ul className="navbar-nav ml-auto">
                 <li className="nav-item">
                     <a className="nav-link" onClick={() => this.props.signout()}>
-                        <i className="fas fa-sign-in-alt"></i> Signout
+                        <i className="fas fa-sign-out-alt"></i> Signout
                     </a>
                 </li>
             </ul>
@@ -48,6 +48,18 @@ class Header extends Component {
                     <span className="navbar-toggler-icon"></span>
                 </button>
                 <div className="collapse navbar-collapse" id="navbarNav">
+                    <ul className="navbar-nav mr-auto">
+                        <li className="nav-item">
+                            <Link className="nav-link" to="/"> 
+                                <i className="fas fa-home"></i> Home
+                            </Link>
+                        </li>
+                        <li className="nav-item">
+                            <Link className="nav-link" to="/protected">
+                                <i className="fas fa-lock"></i> Protected
+                            </Link>
+                        </li>
+                    </ul>
                     {this.props.auth.isAuthenticated
                         ? userLinks
                         : guestLinks}

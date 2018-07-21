@@ -1,12 +1,12 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import {Link, Redirect} from 'react-router-dom';
-import {bindActionCreators} from 'redux';
-import {connect} from 'react-redux';
+import { Link, Redirect } from 'react-router-dom';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
 
 import Form from '../form/Form';
 
-import {signin} from '../../actions/auth';
+import { signin } from '../../actions/auth';
 
 class Signin extends Component {
     constructor(props) {
@@ -28,13 +28,13 @@ class Signin extends Component {
     }
 
     render() {
-        const {from} = this.props.location.state || {
+        const { from } = this.props.location.state || {
             from: {
                 pathname: '/'
             }
         };
         if (this.props.auth.isAuthenticated) {
-            return (<Redirect to={from.pathname}/>)
+            return (<Redirect to={from.pathname} />)
         }
 
         const fields = [
@@ -55,8 +55,8 @@ class Signin extends Component {
                     <div className="row">
                         <div className="col-md-6 offset-md-3">
                             <h2 className="text-center my-3">Signin</h2>
-                            <Form fields={fields} triggerSubmitFunction={this.props.signin}/>
-                            <hr/>
+                            <Form fields={fields} triggerSubmitFunction={this.props.signin} />
+                            <hr />
                             <p className="text-center">
                                 <Link to="/signup">No account ?</Link>
                             </p>

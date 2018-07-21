@@ -1,7 +1,7 @@
-import React, {Component} from 'react';
-import {bindActionCreators} from 'redux';
+import React, { Component } from 'react';
+import { bindActionCreators } from 'redux';
 import { withRouter } from 'react-router-dom'
-import {connect} from 'react-redux';
+import { connect } from 'react-redux';
 
 import FieldGroup from './FieldGroup';
 
@@ -32,20 +32,20 @@ class Form extends Component {
     }
 
     handleChange(e, rule, element) {
-        const {name, value} = e.target;
-        this.setState({[name]: value});
+        const { name, value } = e.target;
+        this.setState({ [name]: value });
     }
 
     componentWillUnmount() {
         this.props.clear();
     }
-    
+
 
     handleSubmitClick() {
         this.props.clear();
-            this
-                .props
-                .triggerSubmitFunction(this.state);
+        this
+            .props
+            .triggerSubmitFunction(this.state);
     }
 
     errorFor(field) {
@@ -68,7 +68,7 @@ class Form extends Component {
                             name={field.name}
                             placeholder={field.placeholder}
                             error={this.errorFor(field.name)}
-                            handleChange={this.handleChange}/>)
+                            handleChange={this.handleChange} />)
                     })}
                 <button
                     type="button"
@@ -79,11 +79,11 @@ class Form extends Component {
     }
 }
 
-const mapStateToProps = state => ({errors: state.errors});
+const mapStateToProps = state => ({ errors: state.errors });
 
 const mapDispatchToProps = dispatch => bindActionCreators({
     clear
-  }, dispatch);
+}, dispatch);
 
 Form = withRouter(connect(mapStateToProps, mapDispatchToProps)(Form));
 

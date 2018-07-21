@@ -1,12 +1,12 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import {Link} from 'react-router-dom';
-import {bindActionCreators} from 'redux';
-import {connect} from 'react-redux';
+import { Link } from 'react-router-dom';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
 
 import Form from '../form/Form';
 
-import {signup} from '../../actions/auth';
+import { signup } from '../../actions/auth';
 
 class Signup extends Component {
   constructor(props) {
@@ -50,8 +50,8 @@ class Signup extends Component {
           <div className="row">
             <div className="col-md-6 offset-md-3">
               <h2 className="text-center my-3">Signup</h2>
-              <Form fields={fields} triggerSubmitFunction={this.props.signup}/>
-              <hr/>
+              <Form fields={fields} triggerSubmitFunction={this.props.signup} />
+              <hr />
               <p className="text-center">
                 <Link to="/signin">Already have an account ?</Link>
               </p>

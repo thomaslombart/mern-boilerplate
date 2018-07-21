@@ -1,7 +1,7 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import {connect} from 'react-redux';
-import {CSSTransitionGroup} from 'react-transition-group';
+import { connect } from 'react-redux';
+import { CSSTransitionGroup } from 'react-transition-group';
 
 import Flash from './FlashMessage';
 
@@ -20,7 +20,7 @@ class FlashMessagesList extends Component {
                             content={message.content}
                             alertClassName={message.alertClassName}
                             id={message.id}
-                            key={message.id}/>)}
+                            key={message.id} />)}
                 </CSSTransitionGroup>
             </div>
         );
@@ -31,7 +31,7 @@ FlashMessagesList.propTypes = {
     messages: PropTypes.array
 };
 
-const mapStateToProps = state => ({messages: state.messages});
+const mapStateToProps = state => ({ messages: state.messages });
 
 FlashMessagesList = connect(mapStateToProps, null)(FlashMessagesList);
 

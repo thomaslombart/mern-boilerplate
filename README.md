@@ -4,8 +4,6 @@ This project aims to help beginners to get started on a full stack app with Reac
 
 [Live App](https://react-full-stack-boilerplate.herokuapp.com/)
 
-![Screenshot of the live app](screenshot.png)
-
 ## Getting Started
 
 ### Prerequisites

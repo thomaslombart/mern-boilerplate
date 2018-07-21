@@ -1,9 +1,9 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import {Link, withRouter} from 'react-router-dom';
-import {bindActionCreators} from 'redux';
-import {signout} from '../../actions/auth';
-import {connect} from 'react-redux';
+import { Link, withRouter } from 'react-router-dom';
+import { bindActionCreators } from 'redux';
+import { signout } from '../../actions/auth';
+import { connect } from 'react-redux';
 
 class Header extends Component {
     render() {
@@ -50,7 +50,7 @@ class Header extends Component {
                 <div className="collapse navbar-collapse" id="navbarNav">
                     <ul className="navbar-nav mr-auto">
                         <li className="nav-item">
-                            <Link className="nav-link" to="/"> 
+                            <Link className="nav-link" to="/">
                                 <i className="fas fa-home"></i> Home
                             </Link>
                         </li>
@@ -74,7 +74,7 @@ Header.propTypes = {
     signout: PropTypes.func
 };
 
-const mapStateToProps = state => ({auth: state.auth});
+const mapStateToProps = state => ({ auth: state.auth });
 
 const mapDispatchToProps = dispatch => bindActionCreators({
     signout

@@ -1,21 +1,21 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import {Redirect} from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 
-import {connect} from 'react-redux';
+import { connect } from 'react-redux';
 
 export default function withRedirect(WrappedComponent) {
     class RedirectIfLogged extends Component {
         render() {
-            const {from} = this.props.location.state || {
+            const { from } = this.props.location.state || {
                 from: {
                     pathname: '/'
                 }
             };
             if (this.props.auth.isAuthenticated) {
-                return (<Redirect to={from.pathname}/>)
+                return (<Redirect to={from.pathname} />)
             }
-            return <WrappedComponent {...this.props}/>
+            return <WrappedComponent {...this.props} />
         }
     }
 
@@ -23,7 +23,7 @@ export default function withRedirect(WrappedComponent) {
         auth: PropTypes.object
     };
 
-    const mapStateToProps = (state) => ({auth: state.auth});
+    const mapStateToProps = (state) => ({ auth: state.auth });
 
     RedirectIfLogged = connect(mapStateToProps)(RedirectIfLogged);
 

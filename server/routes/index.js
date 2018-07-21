@@ -1,22 +1,21 @@
-import express from 'express';
+import express from "express";
 
 import {
   requireAuth
-} from '../middlewares';
+} from "../middlewares";
 
 const router = express.Router();
 
-router.get('/', (req, res, next) => {
+router.get("/", (req, res) => {
   res.json({
-    message: 'Express API boilerplate'
+    message: "Express API boilerplate"
   });
 });
 
-router.get('/protected', requireAuth, (req, res, next) => {
-  console.log(req);
+router.get("/protected", requireAuth, (req, res) => {
   res.json({
-    message: 'Protected content'
+    message: "Protected content"
   });
-})
+});
 
 export default router;

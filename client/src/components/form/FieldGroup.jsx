@@ -9,17 +9,17 @@ const FieldGroup = ({
     error,
     handleChange
 }) => (
-    <div className="form-group">
-        <label>{text}</label>
-        <input
-            type={type}
-            name={name}
-            className={`form-control ${error ? 'is-invalid' : ''}`}
-            placeholder={placeholder}
-            onChange={handleChange}/>
-        <small>{error}</small>
-    </div>
-);
+        <div className="form-group">
+            <label>{text}</label>
+            <input
+                type={type}
+                name={name}
+                className={`form-control ${error ? 'is-invalid' : ''}`}
+                placeholder={placeholder}
+                onChange={handleChange} />
+            <small>{error}</small>
+        </div>
+    );
 
 FieldGroup.propTypes = {
     type: PropTypes.string,

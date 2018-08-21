@@ -5,17 +5,17 @@ import {
 
 const auth = (state = {}, action) => {
   switch (action.type) {
-  case SIGNOUT:
-    return {
-      isAuthenticated: false
-    };
-  case AUTH_USER:
-    return {
-      isAuthenticated: true,
-      user: action.user
-    };
-  default:
-    return state;
+    case SIGNOUT:
+      return {
+        isAuthenticated: false
+      };
+    case AUTH_USER:
+      return {
+        isAuthenticated: true,
+        user: action.user
+      };
+    default:
+      return state;
   }
 };
 

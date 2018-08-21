@@ -1,14 +1,14 @@
 import {
   Strategy,
-  ExtractJwt
-} from "passport-jwt";
+  ExtractJwt,
+} from 'passport-jwt';
 
-import User from "../models/user";
-import config from "./index";
+import User from '../models/user';
+import config from './index';
 
 const jwtOptions = {
   jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),
-  secretOrKey: config.jwt.secret
+  secretOrKey: config.jwt.secret,
 };
 
 const jwtLogin = new Strategy(jwtOptions, (payload, done) => {

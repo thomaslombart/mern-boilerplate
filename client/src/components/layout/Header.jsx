@@ -8,9 +8,9 @@ import { connect } from 'react-redux';
 class Header extends Component {
     render() {
         const userLinks = (
-            <ul className="navbar-nav ml-auto">
-                <li className="nav-item">
-                    <a className="nav-link" onClick={() => this.props.signout()}>
+            <ul>
+                <li>
+                    <a onClick={() => this.props.signout()}>
                         <i className="fas fa-sign-out-alt"></i> Signout
                     </a>
                 </li>
@@ -18,14 +18,14 @@ class Header extends Component {
         );
 
         const guestLinks = (
-            <ul className="navbar-nav ml-auto">
-                <li className="nav-item">
-                    <Link className="nav-link" to="/signin">
+            <ul>
+                <li>
+                    <Link to="/signin">
                         <i className="fas fa-sign-in-alt"></i> Signin
                     </Link>
                 </li>
-                <li className="nav-item">
-                    <Link className="nav-link" to="/signup">
+                <li>
+                    <Link to="/signup">
                         <i className="fas fa-user-plus"></i> Signup
                     </Link>
                 </li>
@@ -33,29 +33,19 @@ class Header extends Component {
         );
 
         return (
-            <nav className="navbar navbar-expand-lg navbar-light bg-light">
-                <h2 className="navbar-brand">
+            <nav>
+                <h2>
                     Full Stack app
                 </h2>
-                <button
-                    className="navbar-toggler"
-                    type="button"
-                    data-toggle="collapse"
-                    data-target="#navbarNav"
-                    aria-controls="navbarNav"
-                    aria-expanded="false"
-                    aria-label="Toggle navigation">
-                    <span className="navbar-toggler-icon"></span>
-                </button>
-                <div className="collapse navbar-collapse" id="navbarNav">
-                    <ul className="navbar-nav mr-auto">
-                        <li className="nav-item">
-                            <Link className="nav-link" to="/">
+                <div>
+                    <ul>
+                        <li>
+                            <Link to="/">
                                 <i className="fas fa-home"></i> Home
                             </Link>
                         </li>
-                        <li className="nav-item">
-                            <Link className="nav-link" to="/protected">
+                        <li>
+                            <Link to="/protected">
                                 <i className="fas fa-lock"></i> Protected
                             </Link>
                         </li>

@@ -2,8 +2,6 @@
 
 This project aims to help beginners to get started on a full stack app with React, Redux, Express and MongoDB
 
-[Live App](https://react-full-stack-boilerplate.herokuapp.com/)
-
 ## Getting Started
 
 ### Prerequisites
@@ -93,9 +91,3 @@ Create your reducer in `./client/src/reducers` then in `./client/src/index.js` i
 ```
 const rootReducer = combineReducers({auth, messages, errors, /* ADD YOUR REDUCER HERE */});
 ```
-
-More how tos are coming...
-
-## Authors
-
-* [Thomas Lombart](https://github.com/thomlom)
